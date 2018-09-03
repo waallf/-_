@@ -1,5 +1,5 @@
-# line = input()
-line = "1-8/3+1"
+line = input()
+# line = "1-8/3+1"
 fuhao = ("+","-","*","/")
 def yunsuan(a,b,c):
     if c == "+":
@@ -9,9 +9,10 @@ def yunsuan(a,b,c):
     if c == "*":
         return a*b
     if c == "/":
-        return int(b/a)
+        return b/a
 fuzhan = ["#"]
 shuzhan = []
+all = int(line[0])
 for i in line:
     if i in fuhao:
         if (i =="*" or i =="/") and (fuzhan[-1] =="+" or fuzhan[-1] =="-") : # 后一个操作符的优先级没有前一个高
