@@ -15,9 +15,10 @@ shuzhan = []
 all = int(line[0])
 for i in line:
     if i in fuhao:
-        if (i =="*" or i =="/") and (fuzhan[-1] =="+" or fuzhan[-1] =="-") : # 后一个操作符的优先级没有前一个高
+        if ((i == "*" or i == "/") and fuzhan[-1] !="#") or ((i == "+" or i == "-") and (fuzhan[-1]== "+" or fuzhan[-1]== "-")):
+
             yusuan = fuzhan.pop()
-            all= yunsuan(int(shuzhan.pop()),int(shuzhan.pop()),yusuan)
+            all= yunsuan(float(shuzhan.pop()),float(shuzhan.pop()),yusuan)
             fuzhan.append(i)
             shuzhan.append(all)
         else:
@@ -25,6 +26,6 @@ for i in line:
     else:
         shuzhan.append(i)
 while fuzhan[-1] != "#":
-    all= yunsuan(int(shuzhan.pop()),int(shuzhan.pop()),fuzhan.pop())
+    all= yunsuan(float(shuzhan.pop()),float(shuzhan.pop()),fuzhan.pop())
     shuzhan.append(all)
 print(int(all))
