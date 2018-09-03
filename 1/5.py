@@ -1,5 +1,5 @@
-line = input()
-# line = "1+6/3"
+# line = input()
+line = "1-8/3+1"
 fuhao = ("+","-","*","/")
 def yunsuan(a,b,c):
     if c == "+":
@@ -9,7 +9,7 @@ def yunsuan(a,b,c):
     if c == "*":
         return a*b
     if c == "/":
-        return b/a
+        return int(b/a)
 fuzhan = ["#"]
 shuzhan = []
 for i in line:
@@ -23,6 +23,7 @@ for i in line:
             fuzhan.append(i)
     else:
         shuzhan.append(i)
-
-all= yunsuan(int(shuzhan.pop()),int(shuzhan.pop()),fuzhan.pop())
+while fuzhan[-1] != "#":
+    all= yunsuan(int(shuzhan.pop()),int(shuzhan.pop()),fuzhan.pop())
+    shuzhan.append(all)
 print(int(all))
